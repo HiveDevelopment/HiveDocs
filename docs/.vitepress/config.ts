@@ -17,13 +17,39 @@ export default defineConfig({
         ['meta', { name: 'color-scheme', content: 'light dark' }],
         ['meta', { property: 'og:site_name', content: 'HivePanel Documentation' }],
         ['meta', { property: 'og:type', content: 'website' }],
-        ['meta', { property: 'og:title', content: 'HivePanel Documentation' }],
-        ['meta', { property: 'og:description', content: 'Install, configure and operate HivePanel.' }],
+        ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+        ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+        ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
+        ['meta', { property: 'og:image', content: 'https://docs.hivepanel.dev/og-image.png' }],
+        ['meta', { property: 'og:image:alt', content: 'HivePanel Documentation' }],
+        ['meta', { property: 'og:image:width', content: '1200' }],
+        ['meta', { property: 'og:image:height', content: '630' }],
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+        ['meta', { name: 'twitter:image', content: 'https://docs.hivepanel.dev/og-image.png' }],
         ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
         ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
         ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap' }],
     ],
+    transformPageData(pageData) {
+        const base = 'https://docs.hivepanel.dev'
+        const route = pageData.relativePath
+            .replace(/(^|\/)index\.md$/, '$1')
+            .replace(/\.md$/, '')
+        const canonical = `${base}/${route}`
+        const title = pageData.title
+            ? `${pageData.title} | HivePanel Documentation`
+            : 'HivePanel Documentation'
+        const description = pageData.description || 'Guides and reference documentation for installing, configuring and operating HivePanel.'
+        pageData.frontmatter.head ??= []
+        pageData.frontmatter.head.push(
+            ['link', { rel: 'canonical', href: canonical }],
+            ['meta', { property: 'og:title', content: title }],
+            ['meta', { property: 'og:description', content: description }],
+            ['meta', { property: 'og:url', content: canonical }],
+            ['meta', { name: 'twitter:title', content: title }],
+            ['meta', { name: 'twitter:description', content: description }],
+        )
+    },
     vite: {
         plugins: [tailwindcss()],
     },
