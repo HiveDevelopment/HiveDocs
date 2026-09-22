@@ -86,6 +86,7 @@ export default defineConfig({
             { text: 'Cells', link: '/cells/' },
             { text: 'Combs', link: '/combs/' },
             { text: 'API', link: '/api/' },
+            { text: 'Privacy', link: '/privacy' },
             {
                 text: 'Community',
                 items: [
@@ -248,7 +249,7 @@ export default defineConfig({
             text: 'Edit this page on GitHub',
         },
         footer: {
-            message: 'HivePanel is open source software.',
+            message: 'HivePanel is open source software. · [Privacy Policy](/privacy)',
             copyright: 'Copyright © HivePanel',
         },
         outline: {
