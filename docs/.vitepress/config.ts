@@ -272,6 +272,7 @@ export default defineConfig({
                     "text": "Client API",
                     "link": "/nectar/api"
                 },
+                { "text": "UI components", "link": "/nectar/ui" },
                 {
                     "text": "Permissions & network",
                     "link": "/nectar/permissions"

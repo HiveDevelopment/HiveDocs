@@ -24,3 +24,7 @@ Preview fixtures simulate calls locally. Test actual user permissions and networ
 - [Extension release checklist](./release-checklist)
 - [Publishing the SDK](./publishing) — for SDK maintainers, separate from distributing `.nectar` extensions.
 - [SDK changelog](./changelog)
+
+## Shared UI controls
+
+The SDK 0.4.0 release adds optional [shared UI components](./ui) and a UI Gallery example. The release bundle can be tested locally before publishing 0.4.0 to npm. Existing 0.3.0 projects continue to work.
