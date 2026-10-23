@@ -1,7 +1,5 @@
 # Pages, widgets, themes and translations
 
-
-
 ## Pages, widgets and sidebar placement
 
 The generated `nectar.json` is a working example. Change `frontend.pages` to add pages:
@@ -30,7 +28,7 @@ Use `ui.locale` to select **your own extension's language catalogue**, with Engl
 
 ## Native page presentation
 
-Full extension pages should sit directly in the Panel layout rather than adding a second framed card around their whole content. The 0.2.1 Panel patch removes the outer content wrapper, uses the native Cell-page heading/icon styles and opts full pages into automatic height. Widgets retain their existing fixed-height behaviour.
+Full extension pages should sit directly in the Panel layout rather than adding a second framed card around their whole content. Compatible Panel versions use the native Cell-page heading/icon styles and allow full extension pages to report their content height. Widgets retain their existing fixed-height behaviour.
 
 The SDK reports content height after its authenticated handshake using ResizeObserver. The host accepts resize messages only from the correct frame and nonce and clamps height to 80–12000px. It keeps the same opaque-origin sandbox and CSP. `createNectar({ autoResize: false })` disables reporting if your extension manages its own layout. Avoid `min-height: 100vh` or other viewport-height feedback in an auto-sized page. Use normal content flow; the SDK disconnects its observer on disposal.
 
@@ -39,7 +37,7 @@ Use zero body margins and leave a small content inset (for example 6px) for focu
 ## Reusable translations
 
 ```ts
-import { createTranslator } from '@hivepanel/nectar';
+import { createTranslator } from '@hivedevelopment/nectar';
 const language = createTranslator({
     en: { welcome: 'Hello {name}' },
     de: { welcome: 'Hallo {name}' },

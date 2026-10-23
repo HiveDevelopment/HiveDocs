@@ -1,11 +1,9 @@
 # Client API reference
 
-
-
 ## Client API
 
 ```ts
-import { applyTheme, createNectar, decodeBody, NectarError } from '@hivepanel/nectar';
+import { applyTheme, createNectar, decodeBody, NectarError } from '@hivedevelopment/nectar';
 
 const nectar = createNectar();
 const { cellId, ui } = await nectar.ready;
@@ -53,7 +51,7 @@ Events: `cell.created`, `cell.updated`, `cell.deleted`. Declare them under `even
 Import `NectarManifest`, `ExtensionPage`, `ExtensionSetting`, `Permission`, `WidgetSlot`, `SidebarGroup` and `SidebarIcon` for tooling and typed configuration. For example:
 
 ```ts
-import type { NectarManifest } from '@hivepanel/nectar';
+import type { NectarManifest } from '@hivedevelopment/nectar';
 const manifest = {
     id: 'example.tools', name: 'Tools', version: '1.0.0', panelCompatibility: 'dev',
     frontend: { entry: 'dist/index.html', slots: ['dashboard.widgets'] },

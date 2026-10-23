@@ -15,4 +15,30 @@
 | Events seem delayed | Events derive from 15-second catalogue polling. They are not durable hooks or live resource metrics. |
 | Select setting crashes validation | Upgrade to SDK 0.3.0; malformed options/defaults now return errors. |
 
-A 0.3.0 SDK does not imply that Panel supports extra APIs. Consult the README's capability table. Never copy Panel credentials into frontend code or preview fixtures.
+A 0.3.0 SDK does not imply that Panel supports extra APIs. Consult the [client API capability table](./api#client-api). Never copy Panel credentials into frontend code or preview fixtures.
+
+## Windows Node.js versions
+
+If installing Node.js 24 still leaves `node -v` reporting an older version, check which installation is used:
+
+```powershell
+where.exe node
+nvm list
+```
+
+If nvm-windows manages the first path, install and select Node 24 through nvm, then reopen your terminal and editor. Use the exact installed version shown by `nvm list` with `nvm use`.
+
+## SDK test wildcard error
+
+If an older SDK checkout reports that `test/*.test.mjs` cannot be found on Windows, update its test script from the repository root:
+
+```powershell
+npm pkg set "scripts.test=npm run build && node --test"
+npm test
+```
+
+The wildcard can be passed literally by Windows shells. Node's automatic test discovery avoids that dependency on shell expansion. This changes the SDK contributor test script, not your extension's scripts.
+
+## Publishing errors
+
+See [SDK publishing](./publishing) for npm 2FA, staged placeholders, duplicate versions and trusted-publisher setup. An extension author building a `.nectar` file does not need to publish to npm.

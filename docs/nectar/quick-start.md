@@ -1,39 +1,61 @@
 # Your first extension
 
+## Create a project
 
+Install Node.js **22 or newer**; Node.js 24 is recommended. The SDK is published on npm as [`@hivedevelopment/nectar`](https://www.npmjs.com/package/@hivedevelopment/nectar).
 
-## Start developing
-
-Requires Node.js 22 or newer. From this SDK directory:
+Run these commands from the directory where you keep your projects:
 
 ```bash
-npm ci
-npm run build
-node bin/nectar.mjs init ../my-extension --id yourname.example --panel-version dev
-cd ../my-extension
+npx --package @hivedevelopment/nectar@0.3.0 nectar init my-extension --id yourname.example --panel-version dev --sdk-source npm
+cd my-extension
 npm install
+npm run dev
+```
+
+Open the loopback URL printed by the preview server. The generated project pins the SDK version in its dependencies, so it does not depend on a temporary npx cache. Developers installing the SDK do not need an npm account or publishing access.
+
+Change `yourname.example` to your extension's unique ID. `--panel-version` must exactly match the target Panel's `NECTAR_PANEL_VERSION`, which defaults to `dev`; semver ranges are not supported by this host.
+
+## Project files
+
+| File | Purpose |
+| --- | --- |
+| `nectar.json` | Identity, permissions, settings, pages and widget declarations. |
+| `src/main.ts` | Frontend entry bundled by the SDK. |
+| `public/style.css` | Styles copied into the built extension. |
+| `nectar.preview.json` | Optional local fixtures; never included in the extension archive. |
+
+The starter demonstrates Cell discovery, settings, themes, live locale changes and catalogue event subscriptions. Read the [manifest guide](./manifest), [client reference](./api) and [interface guide](./interface) when adapting it.
+
+## Build your extension
+
+```bash
 npm run build
 npm run validate
 npm run doctor
 npm run pack
 ```
 
-From a source checkout, the generator references your local SDK using a relative `file:` dependency. Keep that directory available while developing. Once version 0.3.0 has been published to npm, developers can instead use:
+`pack` checks existing build output but does not rebuild it. Rebuild whenever source, assets or manifest entries change.
+
+## Develop against SDK source
+
+For SDK contributors, clone [HiveDevelopment/NectarSDK](https://github.com/HiveDevelopment/NectarSDK):
 
 ```bash
-npx --package @hivepanel/nectar@0.3.0 nectar init my-extension --id yourname.example --panel-version dev --sdk-source npm
-cd my-extension
-npm install
-npm run dev
+git clone https://github.com/HiveDevelopment/NectarSDK.git
+cd NectarSDK
+npm ci
+npm run build
+node bin/nectar.mjs init ../my-extension --id yourname.example --panel-version dev --sdk-source local
 ```
 
-Published installations generate a pinned npm dependency automatically, so projects do not depend on a temporary npx cache. Use `--sdk-source local` or `--sdk-source npm` to choose explicitly. The source/tarball route works before publication. See [publishing](./publishing) for the maintainer release steps.
-
-`panelCompatibility` is an **exact** match for Panel's `config('nectar.panel_version')`, which defaults to `dev`. Set `--panel-version` to your deployment's `NECTAR_PANEL_VERSION`; semver ranges such as `>=1.0.0` are not supported by the current host.
+A source-generated project uses a relative `file:` dependency. Keep the checkout in place, then run `npm install` and `npm run dev` inside the generated project. Use `--sdk-source npm` to generate a registry dependency instead.
 
 ## Install in a development Panel
 
-Use the Panel integration shipped with SDK 0.1.1. SDK 0.3.0 includes an optional Panel page-layout patch for borderless content and automatic iframe height. Apply those two Vue files and rebuild Panel for that presentation; the API still uses the existing integration. No Worker changes are needed. Existing extensions using the v1 bridge remain supported.
+Use a development Panel with Nectar support. The SDK is tooling for extension authors; installing it does not update Panel or Worker. Full-page automatic height requires the host's corresponding Nectar frame support.
 
 1. Upload the generated `.nectar` archive in **Admin → Extensions → Install**.
 2. Review its declared permissions and configure its settings.

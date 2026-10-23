@@ -1,6 +1,6 @@
 # HivePanel documentation
 
-VitePress documentation for HivePanel, Worker and HiveRegistry.
+VitePress documentation for HivePanel, Worker, HiveRegistry and the Nectar SDK.
 
 ```bash
 npm ci
@@ -19,3 +19,5 @@ Production setup follows the installer and Docker Compose flow. Worker is a Node
 When merging pages, keep a short compatibility page for old URLs and remove it from navigation/search. Do not duplicate whole guides. Check internal links and run the production build before publishing. Do not commit dependencies, build output or credentials.
 
 The privacy notice is retained separately and was not rewritten as part of the guide simplification.
+
+Nectar author guides live under `docs/nectar/` and are served at https://docs.hivepanel.dev/nectar/. Use `@hivedevelopment/nectar` for npm examples and `HiveDevelopment/NectarSDK` for source links.

@@ -261,6 +261,14 @@ export default defineConfig({
                     "link": "/nectar/quick-start"
                 },
                 {
+                    "text": "Manifest",
+                    "link": "/nectar/manifest"
+                },
+                {
+                    "text": "CLI commands",
+                    "link": "/nectar/cli"
+                },
+                {
                     "text": "Client API",
                     "link": "/nectar/api"
                 },
@@ -279,7 +287,10 @@ export default defineConfig({
                 {
                     "text": "Troubleshooting",
                     "link": "/nectar/troubleshooting"
-                }
+                },
+                { "text": "Release checklist", "link": "/nectar/release-checklist" },
+                { "text": "SDK publishing", "link": "/nectar/publishing" },
+                { "text": "Changelog", "link": "/nectar/changelog" }
             ]
         },
         {
