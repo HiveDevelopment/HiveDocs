@@ -86,6 +86,7 @@ export default defineConfig({
             { text: 'Cells', link: '/cells/' },
             { text: 'Combs', link: '/combs/' },
             { text: 'API', link: '/api/' },
+            { text: 'Nectar SDK', link: '/nectar/' },
             { text: 'Registry', link: '/registry/' },
             {
                 text: 'Community',
@@ -244,6 +245,40 @@ export default defineConfig({
                 {
                     "text": "Troubleshooting",
                     "link": "/troubleshooting/"
+                }
+            ]
+        },
+        {
+            "text": "Nectar SDK",
+            "collapsed": true,
+            "items": [
+                {
+                    "text": "Overview",
+                    "link": "/nectar/"
+                },
+                {
+                    "text": "Quick start",
+                    "link": "/nectar/quick-start"
+                },
+                {
+                    "text": "Client API",
+                    "link": "/nectar/api"
+                },
+                {
+                    "text": "Permissions & network",
+                    "link": "/nectar/permissions"
+                },
+                {
+                    "text": "Pages, themes & languages",
+                    "link": "/nectar/interface"
+                },
+                {
+                    "text": "Testing & packaging",
+                    "link": "/nectar/testing"
+                },
+                {
+                    "text": "Troubleshooting",
+                    "link": "/nectar/troubleshooting"
                 }
             ]
         },
