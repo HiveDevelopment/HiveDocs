@@ -1,18 +1,17 @@
-# Cell Access
+# Accounts and permissions
 
-Cell access should match the responsibilities of the person using the server.
+The Cell owner has full access. Additional accounts receive only their assigned permissions.
 
-## Common access areas
+## Share from a Cell
 
-A user may need some combination of:
+Open the Cell's **Users** page and add an existing account, then select its permissions. Review file, startup, power and user-management access before saving.
 
-- viewing Cell state
-- starting or stopping the Cell
-- console access
-- file access
-- player management
-- backups
-- schedules
-- configuration changes
+## Assign from Admin
 
-Treat console and file access as powerful permissions because either may allow a user to substantially alter the game server.
+Open **Admin → Cells → select the Cell → Manage accounts**. Administrators with Cell-update permission can add, edit or remove another account's access after creation. This does not transfer ownership.
+
+Removing an assignment removes that additional access without deleting the Cell. Permissions do not automatically grant administrator access to Panel.
+
+## Administrator roles
+
+Manage administrator roles separately from Cell permissions. Grant only the administration areas a person needs. Configure account security and two-factor requirements under Panel settings; protect API tokens and registration credentials like passwords.

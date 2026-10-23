@@ -1,15 +1,12 @@
-# Cell Files
+# Files
 
-The file manager lets authorised users work with files belonging to a Cell without requiring SSH access to the Node.
+File Manager shows files inside the active Cell instance.
 
-## Common tasks
+- Open a folder before uploading. File and folder uploads retain that destination and nested paths.
+- Use the editor for configuration files; save before leaving the page.
+- Download or archive files before replacing content you need to keep.
+- Use the connection details shown in Panel for SFTP.
 
-Use it to edit configuration, upload server files, download logs and organise directories associated with the Cell.
+The instance selector changes which saved setup becomes active. Stop the Cell first; reconnect SFTP after switching. See [Instances](/cells/instances).
 
-## Safe changes
-
-Some applications rewrite configuration during shutdown or startup. Stop the Cell before editing files where the game server requires offline changes.
-
-## Large transfers
-
-For very large migrations or bulk transfers, use the supported import or transfer workflow where available rather than relying on repeated browser uploads.
+A running application can overwrite configuration edits. Stop it before changing files that it saves itself. Files may be locked while installation, restore or instance operations are active.

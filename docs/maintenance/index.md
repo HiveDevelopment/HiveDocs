@@ -1,9 +1,5 @@
 # Maintenance
 
-Keep HivePanel, Worker and the infrastructure beneath them maintained as one system.
+Use [Updates & repair](/maintenance/upgrading) for releases and host repair, and [Backups & recovery](/maintenance/backups-recovery) for protecting persistent data.
 
-## In this section
-
-- [Upgrading HivePanel](/maintenance/upgrading)
-- [Backups and Recovery](/maintenance/backups-recovery)
-- [Decommissioning a Node](/maintenance/decommissioning-a-node)
+Before retiring a Node, move or archive its Cells, test the destination and remove its connection credentials. Keep the source until those checks pass.

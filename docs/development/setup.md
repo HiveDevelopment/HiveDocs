@@ -1,16 +1,27 @@
-# Development Setup
+# Source development
 
-Use the development instructions maintained with the HivePanel source repositories as the source of truth for dependency versions and local services.
+Use each repository's dependency files for required versions. Run local services in an isolated development environment.
 
-## Recommended workflow
+## Panel
 
-1. Clone the relevant HivePanel repository.
-2. Install the versions of language runtimes and package managers required by that repository.
-3. Copy or create the local configuration file.
-4. Start required database or infrastructure services.
-5. Run migrations or bootstrap steps.
-6. Start the development server or Worker process.
+```bash
+composer install
+npm ci
+```
 
-::: info Keep this page versioned
-As the Panel and Worker toolchains evolve, keep exact setup commands next to the corresponding source version rather than relying on stale global instructions.
-:::
+Create local configuration from `.env.example`, provide development database/Redis services, generate a development key and run migrations. Use the repository's development scripts; `npm run build` checks production assets. Never reuse production credentials or run fresh/reset migrations against production.
+
+## Worker
+
+```bash
+go test ./...
+go build -o hiveworker ./cmd/daemon
+```
+
+Use a development Node configuration and disposable Cell directories. Managed identity/Docker features need Linux; building the binary elsewhere does not supply a supported production Node.
+
+## Registry and documentation
+
+Registry: `npm ci`, `npm test`, then `npm run dev`.
+
+Documentation: `npm ci`, `npm run docs:dev`; check changes with `npm run docs:build`. Do not commit `.env`, dependencies or generated build output.

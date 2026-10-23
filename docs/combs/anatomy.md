@@ -1,31 +1,33 @@
-# Comb Anatomy
+# Author a Comb
 
-A Comb collects the information Worker needs to create and operate a particular kind of Cell.
+Shared manifests live under `src/data/combs/` in HiveRegistry. Use the matching workload category/group so Panel shows the right pages.
 
-## Identity
+```json
+{
+  "id": "example-node-app",
+  "name": "Node.js application",
+  "category": "web",
+  "group": "nodejs",
+  "tags": ["web", "nodejs"],
+  "capabilities": ["files", "console", "domains"],
+  "image": "node:22-alpine",
+  "working_dir": "/home/container",
+  "shell": "sh",
+  "entrypoint": [],
+  "environment": {"PORT": "{{allocation.port}}", "HOST": "0.0.0.0"},
+  "mounts": [{"source": "instance", "target": "/home/container"}],
+  "startup": "node index.js",
+  "variables": {},
+  "variables_schema": [],
+  "console_commands": [],
+  "stop": {"command": "", "timeout": 30, "signal": "SIGTERM"},
+  "recommended_resources": {"memory_mb": 256, "disk_mb": 1024, "cpu_percent": 50},
+  "install": [{"type": "write_file", "with": {"target": "index.js", "content": "require('node:http').createServer((req,res)=>res.end('Hello')).listen(Number(process.env.PORT),'0.0.0.0')"}}]
+}
+```
 
-Use a stable identifier, display name, game name and useful tags so administrators can recognise the server type.
+Use a unique ID and an allocation-based port. `console_commands` supplies suggestions; `stop` defines the normal command/signal and grace period. An empty stop command means signal-only shutdown.
 
-## Runtime image
+Optional `docker_images` offers named image choices. `config_files` declares Cell-relative configuration paths; `sidebar` can link supported configuration/file pages. `recommended_resources` supplies starting values for Cell creation.
 
-The image defines the base runtime used by the Cell, such as a Java image for a Minecraft server.
-
-## Working directory
-
-The working directory is where the server process expects its files inside the container.
-
-## Environment and mounts
-
-Environment variables configure runtime behaviour. Mounts map persistent Cell data into the container.
-
-## Startup
-
-The startup field defines the command used to launch the game server and can reference Comb variables.
-
-## Variable schema
-
-Variables define administrator-supplied values such as version or memory.
-
-## Install steps
-
-Install steps obtain or prepare the application before its first start.
+Validate against Registry's schema and [test with a disposable Cell](/combs/testing). Do not put credentials in a shared manifest.

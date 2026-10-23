@@ -1,15 +1,7 @@
-# Importing an Existing Server
+# Importing a server
 
-Use the Cell importer to bring an existing game server into HivePanel without rebuilding it manually from scratch.
+Use the Cell's import tools for supported sources. Confirm the target Node, required disk, files, startup variables and database destination before starting.
 
-## Before importing
+Back up the source first. Keep it available until the imported Cell starts, serves clients and passes your checks. Do not treat successful file transfer as proof that application settings or external services have moved correctly.
 
-Create a backup of the source server and identify the Comb that best matches its runtime and startup requirements.
-
-## During import
-
-Place the server on a Node with enough storage for both the incoming data and normal runtime overhead. Keep the source server stopped while performing the final copy to avoid divergent data.
-
-## After importing
-
-Review the startup command, variables, ports and permissions. Start the Cell and check its console before directing production traffic to it.
+For archives, use File Manager and check the extracted directory layout. For Minecraft modpacks, use the [content installer](/cells/content) where supported. Administrators configure database hosts and Node assignments under [database hosting](/administration/databases).

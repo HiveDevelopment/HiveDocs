@@ -1,35 +1,21 @@
-# HivePanel Documentation
+# HivePanel documentation
 
-Documentation site for HivePanel, built with Vue-powered VitePress and Tailwind CSS.
-
-## Development
+VitePress documentation for HivePanel, Worker and HiveRegistry.
 
 ```bash
-npm install
+npm ci
 npm run docs:dev
-```
-
-## Production build
-
-```bash
 npm run docs:build
 ```
 
-The generated site is written to `docs/.vitepress/dist`.
+The production site is written to `docs/.vitepress/dist`.
 
-## Writing documentation
+## Editing
 
-Documentation pages live under `docs/` and are written in Markdown. Add the page to the sidebar in `docs/.vitepress/config.ts` when it should appear in navigation.
+Write short, task-focused Markdown guides under `docs/`. Navigation lives in `docs/.vitepress/config.ts`; the custom home page is in `docs/.vitepress/theme/components/HomePage.vue`.
 
-Use product terminology consistently:
+Production setup follows the installer and Docker Compose flow. Worker is a Node system service; Cells run in Docker. Shared Combs belong in HiveRegistry. Keep manual/source setup in Development rather than the installation path.
 
-- **Panel** — the central HivePanel control plane.
-- **Node** — a physical machine or VM that runs Worker.
-- **Worker** — the Node service that interfaces with Docker and carries out Panel instructions.
-- **Cell** — a running game server instance managed by HivePanel.
-- **Comb** — a reusable definition describing how a Cell type is installed and started.
-- **Container** — the isolated Docker runtime used to execute a Cell.
+When merging pages, keep a short compatibility page for old URLs and remove it from navigation/search. Do not duplicate whole guides. Check internal links and run the production build before publishing. Do not commit dependencies, build output or credentials.
 
-## Documentation rule
-
-Release-specific commands, ports, dependency versions and compatibility statements should come from the corresponding HivePanel release or source repository. Do not guess them in the docs.
+The privacy notice is retained separately and was not rewritten as part of the guide simplification.

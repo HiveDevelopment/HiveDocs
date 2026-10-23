@@ -1,17 +1,21 @@
-# Cells
+# Manage Cells
 
-A Cell is a running game server instance created and managed by HivePanel.
+A Cell can run a game server, website, bot or another application. Its Comb determines the available workload-specific pages.
 
-Cells are deployed from Combs and placed on Nodes. Panel provides the management interface while Worker performs the underlying lifecycle operations on the Node.
+| Task | Guide |
+| --- | --- |
+| Create a server/application | [Create a Cell](/cells/creating-a-cell) |
+| Power controls and output | [Console](/cells/console) |
+| Upload, edit or download files | [Files](/cells/files) |
+| Change variables or runtime image | [Startup](/cells/variables-startup) |
+| Ports and IP access rules | [Network & firewall](/cells/network) |
+| Install Minecraft content | [JARs, mods, plugins and modpacks](/cells/content) |
+| Install an offered application | [Preinstalls](/cells/preinstalls) |
+| Connect a hostname | [Domains & subdomains](/cells/domains) |
+| Save another server setup | [Instances](/cells/instances) |
+| Divide a resource allowance | [Server Splitter](/cells/splitter) |
+| Change server template | [Switch Comb](/cells/switch-comb) |
+| Share access | [Accounts & permissions](/users/cell-access) |
+| Protect or automate a Cell | [Backups](/cells/backups), [schedules](/cells/schedules) |
 
-## In this section
-
-- [Creating a Cell](/cells/creating-a-cell)
-- [Console](/cells/console)
-- [Files](/cells/files)
-- [Players](/cells/players)
-- [Resources](/cells/resources)
-- [Variables & Startup](/cells/variables-startup)
-- [Backups](/cells/backups)
-- [Schedules](/cells/schedules)
-- [Importing](/cells/importing)
+Installation, content changes and instance operations may temporarily lock controls. Check the operation's progress before retrying.

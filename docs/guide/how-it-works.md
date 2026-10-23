@@ -1,47 +1,11 @@
-# How HivePanel Works
+# How it works
 
-HivePanel has one central Panel and one or more Nodes that provide the compute capacity for your game servers.
+Panel runs as a Docker Compose stack. Each Node runs Worker as a system service, and Worker runs Cells in Docker containers.
 
-## Panel
+Panel sends lifecycle and file operations to Worker. Worker also sends heartbeats back to Panel. Both directions need working DNS and network access.
 
-**Panel** is the central HivePanel application and control plane. It is where users manage infrastructure, Combs and Cells.
+Combs describe what to install and how to run it. Shared Combs belong in **HiveRegistry**; import them into Panel before creating Cells. Images provide the runtime, while Cell files are kept in persistent Node storage.
 
-## Nodes
+HiveRegistry is optional for locally managed Combs. Minecraft catalogue installation and registry-backed preinstalls require it. Nectar adds extension pages and integrations to Panel.
 
-A **Node** is a physical machine or virtual machine that provides compute capacity. Add Nodes as your infrastructure grows or when you need capacity in another location.
-
-## Worker
-
-Each Node runs **Worker**. Worker connects that Node to Panel, receives instructions from Panel and performs the machine-level operations required for the Cells hosted there.
-
-Worker should be thought of as part of the Node rather than as a separate layer between Panel and the Node.
-
-## Cells
-
-A **Cell** is a running game server instance created and managed by HivePanel. A Node can host multiple Cells according to its available resources.
-
-## Combs
-
-A **Comb** is a reusable game server definition. It describes the runtime, installation process, variables and startup configuration needed to create a Cell.
-
-## From Comb to Cell
-
-```text
-Comb definition
-     │
-     ▼
-Panel creates the Cell definition
-and selects a Node
-     │
-     ▼
-Panel sends the required work to
-Worker on that Node
-     │
-     ▼
-Worker prepares and starts the Cell
-     │
-     ▼
-Cell is managed through Panel
-```
-
-The public architecture intentionally stops at Worker and Cells. Container-runtime details beneath Worker are covered separately in [Internals](/internals/container-runtime).
+A Panel and Worker can share one machine, provided their ports and storage do not conflict. See [networking](/nodes/networking).

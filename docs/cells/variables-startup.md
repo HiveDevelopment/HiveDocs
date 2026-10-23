@@ -1,21 +1,13 @@
-# Variables and Startup
+# Startup and variables
 
-Combs can expose variables that are used during installation or when building the Cell startup command.
+Open **Cell → Startup** to view the current startup command, editable Comb variables and offered Docker images.
 
-## Variables
+Saved Cell values take precedence over Comb defaults. A blank value, `0` or `false` is still a value when the variable's validation allows it. Hidden or administrator-controlled variables cannot be edited here.
 
-Variables let one Comb support multiple versions or configurations without duplicating the entire server definition.
+Select a compatible image from the Comb's list—for example, the Java version required by a Minecraft loader. Running Cells apply queued runtime changes on their next stop/start.
 
-Examples include:
+## Shutdown override
 
-- server version
-- memory value
-- downloadable build
-- runtime flags
-- application-specific options
+Set **Shutdown command override** to use a different console command for this Cell. Leave it blank to use the Comb's shutdown settings. Signal-only applications should use a Comb with an empty stop command and the appropriate signal.
 
-## Startup command
-
-The startup command is the command Worker runs inside the Cell container to start the game server.
-
-When changing it, preserve any variables or arguments required by the Comb and runtime image.
+Reinstalling should retain existing variable values for review. Confirm the values and backup/replacement choice before proceeding. To choose another offered template, use [Switch Comb](/cells/switch-comb).

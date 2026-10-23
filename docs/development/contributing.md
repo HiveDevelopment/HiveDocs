@@ -1,15 +1,7 @@
 # Contributing
 
-Contributions should be small enough to review, tested for the component they affect and consistent with the project's existing style.
+Keep changes focused and describe the behaviour users will see. Include a reproduction for fixes and the checks you ran.
 
-## Before opening a change
+Follow the repository's formatting conventions. Test affected paths, update the relevant guide and check permissions, theme tokens and language messages for UI changes.
 
-Search existing issues and pull requests, reproduce the problem or define the intended behaviour, and keep unrelated formatting changes out of the patch.
-
-## Documentation changes
-
-Update these docs whenever a user-facing feature, configuration option or operational workflow changes.
-
-## Security issues
-
-Do not publish sensitive security vulnerabilities in a public issue. Follow the project's security reporting process when one is available.
+Use disposable fixtures instead of live provider credentials or customer data. Report sensitive security details privately through the project's stated contact route rather than posting secrets in an issue.

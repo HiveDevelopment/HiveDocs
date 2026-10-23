@@ -8,41 +8,42 @@ const journeys = [
     {
         eyebrow: 'Get started',
         title: 'Install HivePanel',
-        description: 'Set up Panel, prepare a Node, connect Worker and verify your first deployment.',
+        description: 'Install the Docker-based Panel, connect a Worker and create your first Cell.',
         link: '/installation/',
         action: 'Installation guide',
     },
     {
         eyebrow: 'Run servers',
         title: 'Manage Cells',
-        description: 'Create game servers and manage console, files, resources, backups and schedules.',
+        description: 'Run games, websites and applications. Manage files, content, domains and saved instances.',
         link: '/cells/',
         action: 'Cell documentation',
     },
     {
         eyebrow: 'Extend the hive',
         title: 'Build Combs',
-        description: 'Define reusable game server runtimes, variables, installation steps and startup commands.',
+        description: 'Publish templates and application recipes through HiveRegistry.',
         link: '/combs/',
         action: 'Comb documentation',
     },
 ]
 
 const browse = [
-    { name: 'Architecture', description: 'Understand Panel, Nodes, Worker, Cells and Combs.', link: '/concepts/architecture' },
-    { name: 'Nodes', description: 'Capacity, networking, storage and Worker connectivity.', link: '/nodes/' },
-    { name: 'Users & Security', description: 'Roles, Cell access and account security.', link: '/users/' },
-    { name: 'Maintenance', description: 'Upgrades, recovery and Node decommissioning.', link: '/maintenance/' },
-    { name: 'Troubleshooting', description: 'Diagnose Worker, Node and Cell failures.', link: '/troubleshooting/' },
-    { name: 'Development', description: 'Set up a development environment and contribute.', link: '/development/' },
+    { name: 'Nodes & networking', description: 'Worker connectivity, allocations and the managed web proxy.', link: '/nodes/' },
+    { name: 'Panel customisation', description: 'Offered themes, design tokens and language files.', link: '/administration/appearance' },
+    { name: 'Nectar extensions', description: 'Extension pages, sidebar integration and permissions.', link: '/administration/extensions' },
+    { name: 'HiveRegistry', description: 'Combs, Minecraft content and application preinstalls.', link: '/registry/' },
+    { name: 'Updates & repair', description: 'Keep your Docker deployment healthy and recover safely.', link: '/maintenance/upgrading' },
+    { name: 'Troubleshooting', description: 'Find the failing service or operation without starting over.', link: '/troubleshooting/' },
 ]
 
 const concepts = [
-    { name: 'Panel', text: 'Central control plane', link: '/concepts/panel' },
-    { name: 'Node', text: 'Compute machine', link: '/concepts/nodes' },
-    { name: 'Worker', text: 'Node service', link: '/concepts/worker' },
-    { name: 'Cell', text: 'Game server instance', link: '/concepts/cells' },
-    { name: 'Comb', text: 'Server definition', link: '/concepts/combs' },
+    { name: 'Panel', text: 'Web interface and API', link: '/installation/panel' },
+    { name: 'Node', text: 'Compute host', link: '/nodes/' },
+    { name: 'Worker', text: 'Node service', link: '/installation/worker' },
+    { name: 'Cell', text: 'Server or application', link: '/cells/' },
+    { name: 'Comb', text: 'Workload template', link: '/combs/' },
+    { name: 'Registry', text: 'Shared catalogue', link: '/registry/' },
 ]
 </script>
 
@@ -64,7 +65,7 @@ const concepts = [
                     </h1>
 
                     <p class="docs-home-description">
-                        Installation, infrastructure, game server management and developer documentation for HivePanel.
+                        Install with Docker, connect your Nodes and manage games, websites and applications.
                     </p>
 
                     <button type="button" class="home-hero-search" @click="openSearch">
@@ -134,10 +135,10 @@ const concepts = [
                             <p class="text-xs font-bold uppercase tracking-[0.24em] text-orange-400">Core concepts</p>
                             <h2 class="mt-3 text-3xl font-bold tracking-tight text-white">Meet the hive.</h2>
                         </div>
-                        <p class="max-w-xl text-sm leading-7 text-zinc-500">Five terms make up most of HivePanel's architecture. Learn these and the rest of the documentation becomes much easier to follow.</p>
+                        <p class="max-w-xl text-sm leading-7 text-zinc-500">The main components, at a glance.</p>
                     </div>
 
-                    <div class="mt-4 grid gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.06] md:grid-cols-5">
+                    <div class="mt-4 grid gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.06] md:grid-cols-3">
                         <a
                             v-for="concept in concepts"
                             :key="concept.name"

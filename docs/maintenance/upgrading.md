@@ -1,19 +1,30 @@
-# Upgrading HivePanel
+# Updates and repair
 
-Treat upgrades as infrastructure changes and review the release notes for the exact version you are installing.
+Use **Admin → Updates** for managed Panel updates. Back up the database, `.env`/encryption key and persistent data first. Keep compatible Panel, Worker and Registry versions when a feature spans them.
 
-## Before upgrading
+## Panel health
 
-1. Read the release notes and migration instructions.
-2. Back up Panel data and important Cells.
-3. Record the currently running Panel and Worker versions.
-4. Plan a rollback path.
-5. Schedule downtime if the release requires it.
+```bash
+cd /opt/hivepanel
+docker compose ps
+docker compose logs --tail=100 panel nginx queue
+systemctl status hivepanel-update.path hivepanel-update.service --no-pager -l
+```
 
-## Version compatibility
+The update service can be inactive between jobs; the path watcher waiting for requests is normal. Inspect recent logs if an update remains in progress. Do not delete update-request/status files while a job may still be running.
 
-Keep Panel and Worker within the compatibility range documented by the release. Do not assume arbitrary old Worker versions will remain compatible with a new Panel.
+## Repair
 
-## After upgrading
+Run the installer in check mode first:
 
-Verify authentication, Node connectivity, Cell lifecycle actions, console access and a representative backup or scheduled operation.
+```bash
+curl -fsSL https://get.hivepanel.dev | sudo bash -s -- --check
+```
+
+For an existing installation that needs repair:
+
+```bash
+curl -fsSL https://get.hivepanel.dev | sudo bash -s -- --repair
+```
+
+Repair is separate from a destructive reinstall. Preserve your original encryption key and volumes. Check Node connectivity and one disposable Cell after updating.

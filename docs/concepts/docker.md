@@ -1,7 +1,7 @@
-# Docker and Containers
+---
+search: false
+---
 
-Docker and containers are implementation details beneath Worker rather than first-class components of HivePanel's public architecture.
+# Docker
 
-The architecture users should normally think about is **Panel → Nodes/Workers → Cells**.
-
-For lower-level information about how Worker uses Docker to operate Cell workloads, see [Container Runtime](/internals/container-runtime).
+See the consolidated [guide](/guide/how-it-works).

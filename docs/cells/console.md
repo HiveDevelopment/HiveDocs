@@ -1,15 +1,9 @@
-# Cell Console
+# Console
 
-The console provides live output from the running Cell and lets authorised users send commands to the game server process.
+Use the Cell console to start, stop or restart its application, view output and send supported commands. Resource statistics require a reachable Worker; a disconnected Node can leave the last known status visible.
 
-## Reading output
+Command suggestions come from the Comb. A website or signal-only application may have no interactive commands.
 
-Use console output when checking startup progress, diagnosing crashes or confirming that configuration changes were loaded.
+Normal **Stop** uses the configured shutdown command or signal and grace period. A forced stop can interrupt saves. Change a per-Cell command under [Startup](/cells/variables-startup).
 
-## Sending commands
-
-Commands entered through the console are sent to the running server process. They are not shell commands for the underlying Node.
-
-::: warning Console access
-Console access can be highly privileged for many game servers. Only grant it to users who should be able to administer that Cell.
-:::
+During installation or a content operation, open that operation's logs instead. Check [troubleshooting](/troubleshooting/) if the application exits immediately.

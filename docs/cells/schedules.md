@@ -1,15 +1,7 @@
 # Schedules
 
-Schedules automate recurring Cell actions such as commands, restarts and maintenance tasks.
+Use **Cell → Schedules** to automate the actions offered by Panel, such as console commands, power operations or backups.
 
-## Good uses
+Choose when the schedule runs, add its tasks in the required order and test it on a disposable Cell first. Check the schedule's timezone and execution history.
 
-Schedules are useful for predictable operational work, including maintenance restarts and game-server commands that need to run at known times.
-
-## Avoid collisions
-
-Do not schedule incompatible actions for the same time. Leave enough time between stop, backup, maintenance and start operations for each step to finish.
-
-## Time zones
-
-Document the time zone used by your installation so administrators know when scheduled tasks will actually run.
+The Panel scheduler and queue services must be healthy. A schedule cannot bypass an installation/operation lock or unavailable Worker. See [troubleshooting](/troubleshooting/) if jobs remain pending.

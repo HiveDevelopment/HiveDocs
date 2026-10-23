@@ -1,19 +1,18 @@
-# Comb Installation Steps
+# Installation and preinstall recipes
 
-Installation steps prepare a new Cell before its first normal start.
+Comb `install` steps prepare Cell files before startup. Supported operations include downloads, writing files, directories, extraction, copy/move, Git and command steps. Each operation uses a `type` and a `with` object; use existing Registry manifests and the schema for the operation's exact options.
 
-## Downloads
+```json
+{
+  "type": "write_file",
+  "with": {"target": "public/index.html", "content": "<h1>Ready</h1>"}
+}
+```
 
-Use stable, trustworthy sources and ensure the resulting filename matches what the startup command expects.
+Make paths Cell-relative. Keep downloads reproducible, use HTTPS and check content hashes where supported. Reinstallation can rerun file-writing steps, so document replacements and avoid unnecessary destructive actions.
 
-## Repeatability
+## Preinstall offers
 
-Design installation so failures are easy to diagnose and a fresh attempt produces the same result.
+A Comb can offer Registry preset IDs through `preinstalls` or administrator-authored `preinstall_recipes`. Recipes can clone/build/configure applications rather than only choosing a container image.
 
-## External APIs
-
-If an installation step resolves a server version or build through an external API, treat that endpoint as a dependency of Cell installation and handle unavailable responses clearly.
-
-## Validation
-
-After installation, verify that all files required by the startup command are present before considering the Cell ready.
+Use the Registry recipe schema and isolated staged installer. Keep secrets as runtime configuration; do not bake provider keys or bot tokens into build steps. Users should see a preview, replacement confirmation and progress through the [Preinstalls page](/cells/preinstalls).

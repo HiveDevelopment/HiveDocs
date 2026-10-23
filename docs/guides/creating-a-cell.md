@@ -1,5 +1,7 @@
-# Creating a Cell
+---
+search: false
+---
 
-This guide has moved to the dedicated Cell documentation.
+# Create a Cell
 
-Continue to **[Creating a Cell](/cells/creating-a-cell)**.
+See the consolidated [guide](/cells/creating-a-cell).

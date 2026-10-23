@@ -1,16 +1,13 @@
 # Administration
 
-The administration area is used to manage the infrastructure and shared resources behind HivePanel.
-
-## Typical responsibilities
-
-Administrators manage:
-
-- Nodes and Worker connectivity
-- Cells and placement
-- Combs
-- users and permissions
-- platform configuration
-- operational health
-
-Use the [Node](/nodes/) and [Comb](/combs/) sections for detailed infrastructure guidance.
+| Task | Location / guide |
+| --- | --- |
+| Hosts, allocations and connectivity | [Nodes](/nodes/) |
+| Cell placement and additional accounts | Admin → Cells; [account access](/users/cell-access) |
+| Offered templates and application recipes | [Combs](/combs/) |
+| Split, instance, subdomain and switch limits | [Cell Features](/administration/cell-features) |
+| Website routing and certificates | [Node Web Proxy](/nodes/web-proxy) |
+| Cell databases | [Database hosts](/administration/databases) |
+| Theme choices and translations | [Appearance](/administration/appearance) |
+| Plugins and native extension pages | [Nectar extensions](/administration/extensions) |
+| Releases and repair | [Updates](/maintenance/upgrading) |

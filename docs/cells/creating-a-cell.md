@@ -1,27 +1,13 @@
-# Creating a Cell
+# Create a Cell
 
-A Cell is created from a Comb and placed on a Node with the resources and variables you select.
+In **Admin → Cells → Create**, choose:
 
-## 1. Choose a Comb
+1. **Owner and Node** — who manages it and where it runs.
+2. **Comb** — import one from HiveRegistry first if needed.
+3. **Allocation** — the Cell's primary IP/port, plus any additional ports.
+4. **Resources** — use the Comb's recommendations as a starting point, then adjust for the workload.
+5. **Variables and image** — choose from the values/images offered by the Comb.
 
-Select the game server definition you want to deploy, such as Minecraft Paper, Vanilla, Velocity or Forge.
+Submit and wait for installation. Open installation logs to see progress; the normal console becomes useful once the application is running.
 
-## 2. Choose a Node
-
-Select the Node that should host the Cell. Make sure it has enough available CPU, memory and storage capacity.
-
-## 3. Configure resources
-
-Assign the resource limits required by the Cell and complete any variables exposed by its Comb.
-
-## 4. Review startup configuration
-
-Confirm the startup command and Comb variables match the server you are deploying.
-
-## 5. Deploy
-
-Create the Cell. Worker prepares the environment, performs the Comb installation steps and creates the runtime needed by the server.
-
-## 6. Verify installation
-
-Watch the installation status and console output. Once installation completes, start the Cell and verify that the service is reachable on its assigned port.
+Before sharing the Cell, check startup, files, resource statistics and any additional allocations. Owners or permitted administrators can [assign other accounts](/users/cell-access) after creation.

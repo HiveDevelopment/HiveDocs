@@ -1,17 +1,5 @@
 # Development
 
-HivePanel is open source and can be extended through changes to Panel, Worker and the supporting project ecosystem.
+Use [development setup](/development/setup) to work on the source and [contributing](/development/contributing) before submitting changes.
 
-## Project areas
-
-**Panel** contains the central web application and management interface.
-
-**Worker** runs on Nodes and performs container and Cell operations.
-
-**Combs** define reusable game server deployments and can often be developed independently from Panel or Worker code.
-
-## In this section
-
-- [Development Setup](/development/setup)
-- [Contributing](/development/contributing)
-- [Comb Development](/combs/creating-a-comb)
+Panel is Laravel/Vue, Worker is Go, and HiveRegistry is TypeScript. Production users should use the [installer](/installation/) instead of following source-development steps.

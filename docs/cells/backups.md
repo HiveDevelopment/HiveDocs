@@ -1,15 +1,9 @@
-# Backups
+# Cell backups
 
-Backups protect Cell data from accidental deletion, failed upgrades and infrastructure loss.
+Use **Cell → Backups** to create, download or restore a backup within the limits set by the administrator. Wait for the operation to finish before deleting files or starting another restore.
 
-## Before risky changes
+A restore can replace current files. Stop the Cell and keep a recent backup before accepting the confirmation. Verify the restored server before discarding your previous copy.
 
-Create a backup before major server updates, modpack changes, migrations or destructive configuration work.
+A saved [instance](/cells/instances) is useful for switching setups, but remains on the Node. It is not a substitute for an off-host backup. External databases need their own backup plan.
 
-## Storage strategy
-
-Important backups should ultimately exist outside the same physical storage that holds the live Cell data.
-
-## Restore testing
-
-Periodically test restoration. A backup job completing successfully does not prove the resulting archive can be restored into a working server.
+Operators should also back up the [Panel and Node data](/maintenance/backups-recovery).

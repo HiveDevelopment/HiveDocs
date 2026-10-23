@@ -1,15 +1,12 @@
 # Combs
 
-Combs are reusable definitions that tell HivePanel how a type of game server should be installed and started.
+A Comb defines a Cell's runtime image, installation, startup, variables and workload-specific controls. It can describe Minecraft, another game, a website, a database or a bot.
 
-A Comb can describe the runtime image, working directory, environment, mounts, startup command, variables and installation steps needed to create a Cell.
+Import shared templates from **HiveRegistry**. For a private/local template, use **Admin → Combs → Create** and paste its JSON. Review the console and shutdown fields before saving; editing those fields updates the manifest.
 
-## In this section
+- [Author a Comb](/combs/anatomy)
+- [Variables and images](/combs/variables)
+- [Installation recipes](/combs/install-steps)
+- [Test a Comb](/combs/testing)
 
-- [Comb Anatomy](/combs/anatomy)
-- [Creating a Comb](/combs/creating-a-comb)
-- [Variables](/combs/variables)
-- [Installation Steps](/combs/install-steps)
-- [Startup Commands](/combs/startup)
-- [Docker Images](/combs/images)
-- [Testing a Comb](/combs/testing)
+An image supplies the software runtime. A Comb installs/configures the Cell files and controls how that image is used; a reusable template should not depend on host-installed Java, Node.js or writable system cache folders.

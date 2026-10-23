@@ -1,19 +1,12 @@
-# Testing a Comb
+# Test a Comb
 
-Test a Comb as if you were a user deploying it for the first time.
+Use a disposable Cell and the same managed Docker runtime as production.
 
-## Fresh install test
+1. Validate and import the complete Registry manifest.
+2. Install, then inspect the operation logs and resulting files.
+3. Start it under the Cell UID/GID and assigned port.
+4. Check console output, shutdown, configuration pages and client connectivity.
+5. Change a variable/image and allocation, then stop/start again.
+6. Review reinstall and file-replacement behaviour before offering it to users.
 
-Create a completely new Cell with an empty data directory. Confirm the installation steps finish and the expected files are created.
-
-## Startup test
-
-Start the Cell and confirm the process remains online, console output is normal and the service listens on its configured port.
-
-## Variable test
-
-Test non-default variable values, especially alternate versions and memory settings.
-
-## Failure test
-
-Try a deliberately invalid version or unavailable download and confirm the resulting error is understandable rather than leaving the Cell in an unexplained state.
+Check any game-specific pages and preinstall offers too. A successful image pull does not prove the workload can write its caches, bind its port or run without root.
